@@ -1,0 +1,67 @@
+Partlist
+
+Exported from sw-4416-project-v1.sch at 12-09-24 6:30 PM
+
+EAGLE Version 6.2.0 Copyright (c) 1988-2012 CadSoft
+
+Assembly variant: 
+
+Part     Value           Device             Package           Library    Sheet
+
+C1       0.1uF           CAP0603-CAP        0603-CAP          SparkFun   1
+C2       0.1uF           CAP0603-CAP        0603-CAP          SparkFun   1
+C3       0.1uF           CAP0603-CAP        0603-CAP          SparkFun   1
+C4       4.7uF           CAP0603-CAP        0603-CAP          SparkFun   1
+C5       4.7uF           CAP0603-CAP        0603-CAP          SparkFun   1
+C6       4.7uF           CAP0603-CAP        0603-CAP          SparkFun   1
+C7       4.7uF           CAP0603-CAP        0603-CAP          SparkFun   1
+C8       4.7uF           CAP0603-CAP        0603-CAP          SparkFun   1
+C9       4.7uF           CAP0603-CAP        0603-CAP          SparkFun   1
+C10      22pF            CAP0603-CAP        0603-CAP          SparkFun   1
+C11      22pF            CAP0603-CAP        0603-CAP          SparkFun   1
+C12      1uF             CAP0603-CAP        0603-CAP          SparkFun   1
+C13      1uF             CAP0603-CAP        0603-CAP          SparkFun   1
+CN1                      JST_2PIN-SMT-RA    JST-PH-2-SMT-RA   adafruit   1
+IC1      MCP73831        MCP73831           SOT23-5           SparkFun   1
+ISP1     AVRISP-6        AVRISP-6           AVRISP            adafruit   1
+JP1      Vcc             JUMPER-2PTH        1X02              SparkFun   1
+JP2      VUSB            JUMPER-2PTH        1X02              SparkFun   1
+JP3      3.3V            JUMPER-2PTH        1X02              SparkFun   1
+JP4      GND             JUMPER-2PTH        1X02              SparkFun   1
+JP5      AREF            JUMPER-2PTH        1X02              SparkFun   1
+JP6      UART            JUMPER-2PTH        1X02              SparkFun   1
+JP7      USB             JUMPER-2PTH        1X02              SparkFun   1
+JP8      JUMPER-3PTH     JUMPER-3PTH        1X03              SparkFun   1
+L1                       INDUCTOR0805       0805              SparkFun   1
+LED1     Red             LED0603            LED-0603          SparkFun   1
+LED2     Green           LED0603            LED-0603          SparkFun   1
+LED3     Green           LED0603            LED-0603          SparkFun   1
+LED4     Power           LED0603            LED-0603          SparkFun   1
+LED5     RX              LED0603            LED-0603          SparkFun   1
+LED6     TX              LED0603            LED-0603          SparkFun   1
+LED7     DBG0            LED0603            LED-0603          SparkFun   1
+LED8     DBG1            LED0603            LED-0603          SparkFun   1
+R1       330             RESISTOR0603-RES   0603-RES          SparkFun   1
+R2       10K             RESISTOR0603-RES   0603-RES          SparkFun   1
+R3       330             RESISTOR0603-RES   0603-RES          SparkFun   1
+R4       2k              RESISTOR0603-RES   0603-RES          SparkFun   1
+R5       330             RESISTOR0603-RES   0603-RES          SparkFun   1
+R6       330             RESISTOR0603-RES   0603-RES          SparkFun   1
+R7       330             RESISTOR0603-RES   0603-RES          SparkFun   1
+R8       22              RESISTOR0603-RES   0603-RES          SparkFun   1
+R9       22              RESISTOR0603-RES   0603-RES          SparkFun   1
+R10      330             RESISTOR0603-RES   0603-RES          SparkFun   1
+R11      1M              RESISTOR0603-RES   0603-RES          SparkFun   1
+R12      10K             RESISTOR0603-RES   0603-RES          SparkFun   1
+R13      10K             RESISTOR0603-RES   0603-RES          SparkFun   1
+R14      10K             RESISTOR0603-RES   0603-RES          SparkFun   1
+R15      330             RESISTOR0603-RES   0603-RES          SparkFun   1
+R16      330             RESISTOR0603-RES   0603-RES          SparkFun   1
+R17      10K             RESISTOR0603-RES   0603-RES          SparkFun   1
+S1       Power           SWITCH-SPST-SMD-A  SWITCH-SPST-SMD-A SparkFun   1
+U$1      ADXL335         ADXL335            LFCSP-16          SparkFun   1
+U$2      ATMEGA32U4-AU   ATMEGA32U4-AU      TQFP44            adafruit   1
+U$3      BLUETOOTH-RN41" BLUETOOTH-RN41"    RN41              SparkFun   1
+U1       ADP3338         VREG_3PINS-SOT-223 SOT-223           dp_devices 1
+X1       USB-MICROB      USB-MICROB         USB-MICROB        SparkFun   1
+Y1       16M             CRYSTALHC49US      HC49US            SparkFun   1
