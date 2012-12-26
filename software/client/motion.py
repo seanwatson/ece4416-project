@@ -4,7 +4,9 @@ import mouse_movement
 class Motion(object):
 
     def __init__(self):
-        self.codes = []
+        self.motions = []
+        self.code = 0
+        self.position = 0
         self.actions = []
 
     def move(self):
@@ -14,36 +16,46 @@ class Motion(object):
 class LeftMotion(Motion):
 
     def __init__(self):
-        self.codes = [444]
+        super(LeftMotion, self).__init__()
+        self.motions = [self]
+        self.code = 4
         self.actions = [mouse_movement.LeftMouseMovement()]
 
 class RightMotion(Motion):
 
     def __init__(self):
-        self.codes = [222]
+        super(RightMotion, self).__init__()
+        self.motions = [self]
+        self.code = 2
         self.actions = [mouse_movement.RightMouseMovement()]
 
 class ForwardMotion(Motion):
 
     def __init__(self):
-        self.codes = [111]
+        super(ForwardMotion, self).__init__()
+        self.motions = [self]
+        self.code = 1
         self.actions = [mouse_movement.DownMouseMovement()]
 
 class BackwardMotion(Motion):
 
     def __init__(self):
-        self.codes = [333]
+        super(BackwardMotion, self).__init__()
+        self.motions = [self]
+        self.code = 3
         self.actions = [mouse_movement.UpMouseMovement()]
 
 class NodMotion(Motion):
 
     def __init__(self):
-        self.codes = [111, 333]
-        self.actions = []   #TODO: mouse click or something
+        super(NodMotion, self).__init__()
+        self.motions = [ForwardMotion(), BackwardMotion()]
+        self.actions = [mouse_movement.MouseLeftClick()]
 
 class ShakeMotion(Motion):
 
     def __init__(self):
-        self.codes = [444, 222]
-        self.actions = []   #TODO: some other command
+        super(ShakeMotion, self).__init__()
+        self.motions = [LeftMotion(), RightMotion()]
+        self.actions = [mouse_movement.MouseRightClick()]
 

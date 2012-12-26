@@ -54,7 +54,7 @@ class BluetoothConnection(threading.Thread):
             if rec != None:
                 self.read_queue.put(rec, True)  # Blocking call
             
-            time.sleep(0.5)
+            time.sleep(0.1)
 
     def connect(self, addr, port):
         """Connects the socket.

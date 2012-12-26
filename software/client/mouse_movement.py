@@ -60,3 +60,14 @@ class DownMouseMovement(MouseMovement):
         if pos[1] < self.screen_size[1]:
             self.mouse.move(pos[0], pos[1] + 1)
 
+class MouseLeftClick(MouseMovement):
+
+    def execute(self):
+        pos = self.mouse.position()
+        self.mouse.click(pos[0], pos[1])
+
+class MouseRightClick(MouseMovement):
+
+    def execute(self):
+        pos = self.mouse.position()
+        self.mouse.click(pos[0], pos[1], 2)
