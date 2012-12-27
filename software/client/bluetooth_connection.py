@@ -2,7 +2,6 @@
 Maintains a connection to a bluetooth device and handles
 all reads and writes to the socket.
 """
-#TODO(sean): handle exceptions properly
 #TODO(sean): connection retries on fails
 
 import threading
@@ -51,7 +50,7 @@ class BluetoothConnection(threading.Thread):
                 rec = self.sock.recv(256)
             except bluetooth.BluetoothError:
                 pass
-            if rec != None:
+            while rec != None:
                 self.read_queue.put(rec, True)  # Blocking call
             
             time.sleep(0.1)
@@ -68,20 +67,12 @@ class BluetoothConnection(threading.Thread):
 
     def stop(self):
         """Stops the thread from running."""
-        time.sleep(2)       # Delay needed to flush send buffer
+        time.sleep(1)       # Delay needed to flush send buffer
         self.kill = True
 
     def close(self):
         """Closes the socket."""
         self.sock.close()
-
-    def is_connected(self):
-        """Returns the connection status.
-
-        Returns:
-            True if the socket is connected, false otherwise.
-        """
-        return False
 
     def is_running(self):
         """Returns the status of the thread

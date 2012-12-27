@@ -33,13 +33,14 @@ class MouseMovement(object):
         pass
 
 class LeftMouseMovement(MouseMovement):
-
+    """Moves the mouse to the left 1 pixel."""
     def execute(self):
         pos = self.mouse.position()
         if pos[0] > 0:
             self.mouse.move(pos[0] - 1, pos[1])
 
 class RightMouseMovement(MouseMovement):
+    """Moves the mouse to the right 1 pixel."""
 
     def execute(self):
         pos = self.mouse.position()
@@ -47,6 +48,7 @@ class RightMouseMovement(MouseMovement):
             self.mouse.move(pos[0] + 1, pos[1])
 
 class UpMouseMovement(MouseMovement):
+    """Moves the mouse up 1 pixel."""
 
     def execute(self):
         pos = self.mouse.position()
@@ -54,6 +56,7 @@ class UpMouseMovement(MouseMovement):
             self.mouse.move(pos[0], pos[1] - 1)
 
 class DownMouseMovement(MouseMovement):
+    """Moves the mouse down 1 pixel."""
 
     def execute(self):
         pos = self.mouse.position()
@@ -61,12 +64,14 @@ class DownMouseMovement(MouseMovement):
             self.mouse.move(pos[0], pos[1] + 1)
 
 class MouseLeftClick(MouseMovement):
+    """Clicks the left mouse button."""
 
     def execute(self):
         pos = self.mouse.position()
         self.mouse.click(pos[0], pos[1])
 
 class MouseRightClick(MouseMovement):
+    """Clicks the right mouse button."""
 
     def execute(self):
         pos = self.mouse.position()
