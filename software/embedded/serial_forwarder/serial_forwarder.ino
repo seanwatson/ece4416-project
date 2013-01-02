@@ -3,8 +3,8 @@
 * the Bluetooth module and vice versa
 **********************************************************/
 
-int usb_baud = 115200;  // USB baud rate
-int bt_baud = 115200;   // Bluetooth baud rate
+long usb_baud = 115200;  // USB baud rate
+long bt_baud = 115200;   // Bluetooth baud rate
 
 void setup(){
   

@@ -50,7 +50,7 @@ class BluetoothConnection(threading.Thread):
                 rec = self.sock.recv(256)
             except bluetooth.BluetoothError:
                 pass
-            while rec != None:
+            if rec != None:
                 self.read_queue.put(rec, True)  # Blocking call
             
             time.sleep(0.1)
