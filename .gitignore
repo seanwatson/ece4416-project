@@ -4,6 +4,12 @@
 *.s#*
 *.b#*
 
+# Gerber Files #
+################
+*.dri
+*.gpi
+*gerbers*
+
 # Python Files #
 ################
 *.pyc

@@ -4657,7 +4657,7 @@ http://dangerousprototypes.com</description>
 <pinref part="P+4" gate="G$1" pin="3.3V"/>
 </segment>
 </net>
-<net name="N$11" class="0">
+<net name="VIN" class="0">
 <segment>
 <pinref part="U1" gate="VREG" pin="VIN"/>
 <pinref part="S1" gate="1" pin="O"/>
