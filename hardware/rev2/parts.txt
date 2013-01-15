@@ -1,0 +1,38 @@
+Partlist
+
+Exported from sw-4416-project-v2.sch at 13-01-15 9:42 AM
+
+EAGLE Version 6.2.0 Copyright (c) 1988-2012 CadSoft
+
+Assembly variant: 
+
+Part     Value                    Device                   Package             Library    Sheet
+
+C1       0.1u                     CAP0603-CAP              0603-CAP            SparkFun   1
+C2       0.1u                     CAP0603-CAP              0603-CAP            SparkFun   1
+C3       0.1u                     CAP0603-CAP              0603-CAP            SparkFun   1
+C4       1u                       CAP0603-CAP              0603-CAP            SparkFun   1
+C5       1u                       CAP0603-CAP              0603-CAP            SparkFun   1
+C6       22p                      CAP0603-CAP              0603-CAP            SparkFun   1
+C7       22p                      CAP0603-CAP              0603-CAP            SparkFun   1
+C8       4.7u                     CAP0603-CAP              0603-CAP            SparkFun   1
+C9       4.7u                     CAP0603-CAP              0603-CAP            SparkFun   1
+C10      4.7u                     CAP0603-CAP              0603-CAP            SparkFun   1
+J1       CON_HEADER_PRG_AVR_ICSP" CON_HEADER_PRG_AVR_ICSP" HEADER_PRG_2X03_SMD dp_devices 1
+JP1                               JUMPER-2PTH              1X02                SparkFun   1
+L1                                INDUCTOR0805             0805                SparkFun   1
+LED1                              LED0603                  LED-0603            SparkFun   1
+R1       22                       RESISTOR0603-RES         0603-RES            SparkFun   1
+R2       22                       RESISTOR0603-RES         0603-RES            SparkFun   1
+R3       2k                       RESISTOR0603-RES         0603-RES            SparkFun   1
+R4       10k                      RESISTOR0603-RES         0603-RES            SparkFun   1
+R5       1M                       RESISTOR0603-RES         0603-RES            SparkFun   1
+R6       330                      RESISTOR0603-RES         0603-RES            SparkFun   1
+S1                                SWITCH-SPST-SMD-A        SWITCH-SPST-SMD-A   SparkFun   1
+U$1      ATMEGA32U4QFN            ATMEGA32U4QFN            QFN-44              SparkFun   1
+U$2      BLUETOOTH-RN41"          BLUETOOTH-RN41"          RN41                SparkFun   1
+U$3      CRYSTAL_SMT              CRYSTAL_SMT              CRYSTAL-SMD-5X3     SparkFun   1
+U1       ADXL335                  ADXL335                  LFCSP-16            SparkFun   1
+U2       MCP73831                 MCP73831                 SOT23-5             SparkFun   1
+VREG1    ADP3338                  VREG_3PINS-SOT-223       SOT-223             dp_devices 1
+X1       USB-MICROB               USB-MICROB               USB-MICROB          SparkFun   1

@@ -3,6 +3,7 @@
 *.epf
 *.s#*
 *.b#*
+*.pro
 
 # Gerber Files #
 ################
