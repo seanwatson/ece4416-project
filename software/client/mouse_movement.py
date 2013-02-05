@@ -33,35 +33,35 @@ class MouseMovement(object):
         pass
 
 class LeftMouseMovement(MouseMovement):
-    """Moves the mouse to the left 1 pixel."""
+    """Moves the mouse to the left 3 pixels."""
     def execute(self):
         pos = self.mouse.position()
-        if pos[0] > 0:
-            self.mouse.move(pos[0] - 1, pos[1])
+        if pos[0] > 2:
+            self.mouse.move(pos[0] - 3, pos[1])
 
 class RightMouseMovement(MouseMovement):
-    """Moves the mouse to the right 1 pixel."""
+    """Moves the mouse to the right 3 pixels."""
 
     def execute(self):
         pos = self.mouse.position()
-        if pos[0] < self.screen_size[0]:
-            self.mouse.move(pos[0] + 1, pos[1])
+        if pos[0] < self.screen_size[0] + 2:
+            self.mouse.move(pos[0] + 3, pos[1])
 
 class UpMouseMovement(MouseMovement):
-    """Moves the mouse up 1 pixel."""
+    """Moves the mouse up 3 pixels."""
 
     def execute(self):
         pos = self.mouse.position()
-        if pos[1] > 0:
-            self.mouse.move(pos[0], pos[1] - 1)
+        if pos[1] > 2:
+            self.mouse.move(pos[0], pos[1] - 3)
 
 class DownMouseMovement(MouseMovement):
-    """Moves the mouse down 1 pixel."""
+    """Moves the mouse down 3 pixels."""
 
     def execute(self):
         pos = self.mouse.position()
-        if pos[1] < self.screen_size[1]:
-            self.mouse.move(pos[0], pos[1] + 1)
+        if pos[1] < self.screen_size[1] + 2:
+            self.mouse.move(pos[0], pos[1] + 3)
 
 class MouseLeftClick(MouseMovement):
     """Clicks the left mouse button."""

@@ -14,12 +14,12 @@ Serial_* usb = &Serial;
 HardwareSerial* bluetooth = &Serial1;
 
 Accelerometer accel(X_PIN, Y_PIN, Z_PIN);
-MotionHandler handler(&accel, usb);
+MotionHandler handler(&accel, bluetooth);
 
-Motion forwardMotion(1, -36, 0, -30);
-Motion rightMotion(2, -50, -36, 80);
-Motion backwardMotion(3, -60, 0, -77);
-Motion leftMotion(4, -50, 30, 80);
+Motion forwardMotion(1, -55, 0, 55);
+Motion rightMotion(2, -50, -36, -80);
+Motion backwardMotion(3, -55, 0, -55);
+Motion leftMotion(4, -60, 25, -80);
 
 void setup(){
   usb->begin(115200);
@@ -35,7 +35,7 @@ void loop(){
   
   handler.process();
   
-  delay(1000);
+  delay(10);
 }
 
 

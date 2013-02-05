@@ -26,6 +26,7 @@ def main():
     handler.add_motion(motion.ForwardMotion())
     handler.add_motion(motion.BackwardMotion())
     handler.add_motion(motion.NodMotion())
+    handler.add_motion(motion.ShakeMotion())
     print "Created. Detecting left, right, forward, backward, nod, shake."
 
     print "Starting motion handler..."

@@ -22,15 +22,15 @@
 class MotionHandler{
 
 	public:
-		//MotionHandler(Accelerometer* accel, HardwareSerial* output);
+		MotionHandler(Accelerometer* accel, HardwareSerial* output);
 		MotionHandler(Accelerometer* accel, Serial_* output);
 		void process();
 		void add_motion(Motion*  mot);
 
 	private:
 		Accelerometer* _accel;
-		//HardwareSerial* _output;
-		Serial_* _output;
+		HardwareSerial* _output;
+		//Serial_* _output;
 		Motion* _motions[10];
 		int _num_motions;
 

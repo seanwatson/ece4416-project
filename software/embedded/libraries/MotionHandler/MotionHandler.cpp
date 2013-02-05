@@ -7,8 +7,8 @@
 
 #include "MotionHandler.h"
 
-//MotionHandler::MotionHandler(Aceclerometer* accel, HardwareSerial* output):
-MotionHandler::MotionHandler(Accelerometer* accel, Serial_* output):
+//MotionHandler::MotionHandler(Accelerometer* accel, Serial_* output):
+MotionHandler::MotionHandler(Accelerometer* accel, HardwareSerial* output):
 	_accel(accel),
 	_output(output),
 	_num_motions(0)
@@ -34,13 +34,23 @@ void MotionHandler::process(){
 	float x_angle = atan(x / sqrt((y * y) + (z * z))) * 180 / 3.14159;
 	float y_angle = atan(y / sqrt((x * x) + (z * z))) * 180 / 3.14159;
 	float z_angle = atan(sqrt((x * x) + (y * y)) / z) * 180 / 3.14159;
-	
+/*
+    x_angle = abs(x_angle);
+    y_angle = abs(y_angle);
+    z_angle = abs(z_angle);
+*/	
 	// Match the reading to a motion
 	for(int i = 0; i < _num_motions; ++i){
 		int mx = _motions[i]->x();
 		int my = _motions[i]->y();
 		int mz = _motions[i]->z();
-
+	/*
+        _output->print(mx);
+	    _output->print("; ");
+	    _output->print(my);
+	    _output->print("; ");
+	    _output->println(mz);
+    */
 		if(x_angle > mx - TOLERANCE && x_angle < mx + TOLERANCE &&
 		   y_angle > my - TOLERANCE && y_angle < my + TOLERANCE &&
 		   z_angle > mz - TOLERANCE && z_angle < mz + TOLERANCE){
@@ -48,14 +58,14 @@ void MotionHandler::process(){
 		}
 	}
 
-
+/*
 	// Send the motion's code
 	_output->print(x_angle);
 	_output->print(", ");
 	_output->print(y_angle);
 	_output->print(", ");
 	_output->println(z_angle);
-
+*/
 }
 
 void MotionHandler::add_motion(Motion* mot){
