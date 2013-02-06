@@ -12,10 +12,10 @@ class Motion{
 
 	public:
 		Motion(int code, int x_deg, int y_deg, int z_deg);
-		const int& code();
-		const int& x();
-		const int& y();
-		const int& z();
+		const int& code() const;
+		const int& x() const;
+		const int& y() const;
+		const int& z() const;
 
 	private:
 		int _code;

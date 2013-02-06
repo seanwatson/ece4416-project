@@ -14,10 +14,7 @@ class Accelerometer{
 
 	public:
 		Accelerometer(const byte x_pin, const byte y_pin, const byte z_pin);
-		float* take_reading(float* const readings);
-		void set_neutral_position();
-		void calibrate();
-		void test();
+		float* take_reading(float* const readings) const;
 
 		const int& x_zero();
 		const int& y_zero();

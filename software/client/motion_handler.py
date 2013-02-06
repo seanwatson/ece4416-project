@@ -3,6 +3,7 @@ Handles incoming motion commands and translates them to actions.
 """
 
 import threading
+import logging
 import time
 
 class MotionHandler(threading.Thread):
@@ -34,6 +35,8 @@ class MotionHandler(threading.Thread):
         self.motions = []
         self.kill = False
         self.timeout = 1
+        logging.debug("Created MotionHandler %s . Reader %s",
+                self, self.motion_queue)
 
     def run(self):
         """The main thread process.
@@ -41,9 +44,11 @@ class MotionHandler(threading.Thread):
         Waits for commands to be received, processes them and calls the
         appropriate actions when necessary.
         """
+        logging.info("Starting MotionHandler thread")
         start = time.time()
         while not self.kill:
             code = int(self.motion_queue.get(True))  # Blocking get call
+            logging.debug("Got code: %s", code)
 
             # Reset all motions if stationary for too long
             if(time.time() - start > self.timeout):
@@ -58,20 +63,25 @@ class MotionHandler(threading.Thread):
                     if mot.position == len(mot.motions) - 1:
                         mot.position = 0
                         mot.move()
+                        logging.debug("Motion %s fully matched", mot)
                     # Otherwise start looking for the next motion
                     else:
                         mot.position += 1
+                        logging.debug("Motion %s partially matched", mot)
                 # Reset the position for a wrong motion
                 else:
                     mot.position = 0
 
             self.motion_queue.task_done()
             start = time.time()
+
+        logging.info("MotionHandler thread stopped")
     
     def stop(self):
         """Stops the thread."""
         self.kill = True
         self.motion_queue.put(0)    # Needed to get out of blocking call
+        logging.info("Stopping MotionHandler")
 
     def add_motion(self, mot):
         """Adds a motion to detect.
@@ -84,3 +94,6 @@ class MotionHandler(threading.Thread):
             The new motion to be detected.
         """
         self.motions.append(mot)
+        logging.info("Added Motion %s to MotionHandler %s",
+                mot, self)
+
