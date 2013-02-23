@@ -9,12 +9,14 @@
 #define _ACCELEROMETER_H_
 
 #include <Arduino.h>
+#include <math.h>
 
 class Accelerometer{
 
 	public:
 		Accelerometer(const byte x_pin, const byte y_pin, const byte z_pin);
-		float* take_reading(float* const readings) const;
+		void take_reading(float* const readings) const;
+        void take_reading_angle(float* const readings) const;
 
 		const int& x_zero();
 		const int& y_zero();

@@ -43,7 +43,7 @@ class BluetoothConnection(threading.Thread):
 
             # Handle any necessary writing
             while not self.write_queue.empty():
-                output = self.write_queue.get()
+                output = str(self.write_queue.get())
                 self.sock.send(output)
                 self.write_queue.task_done()
                 logging.debug("Wrote to bluetooth: %s", output)

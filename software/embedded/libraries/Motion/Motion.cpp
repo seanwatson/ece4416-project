@@ -15,6 +15,17 @@ Motion::Motion(int code, int x_deg, int y_deg, int z_deg):
 {
 }
 
+Motion::Motion(int code):
+    _code(code)
+{
+    unsigned index = (code - 1) * 3;
+    unsigned offset = 128;
+
+    _x = (int)EEPROM.read(index) - offset;
+    _y = (int)EEPROM.read(index + 1) - offset;
+    _z = (int)EEPROM.read(index + 2) - offset;
+}
+
 const int& Motion::code() const{
 	return _code;
 }

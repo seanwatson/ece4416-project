@@ -17,7 +17,7 @@ import bluetooth_connection
 def main():
 
     # Set up logging
-    logging.basicConfig(level=logging.WARNING)
+    logging.basicConfig(level=logging.DEBUG)
 	
     # Bluetooth connection parameters
     dev_name = "ProjectDevBoard"
@@ -32,6 +32,10 @@ def main():
     handler.add_motion(motion.RightMotion())
     handler.add_motion(motion.ForwardMotion())
     handler.add_motion(motion.BackwardMotion())
+    handler.add_motion(motion.FastLeftMotion())
+    handler.add_motion(motion.FastRightMotion())
+    handler.add_motion(motion.FastForwardMotion())
+    handler.add_motion(motion.FastBackwardMotion())
     handler.add_motion(motion.NodMotion())
     handler.add_motion(motion.ShakeMotion())
     print "Created. Detecting left, right, forward, backward, nod, shake."

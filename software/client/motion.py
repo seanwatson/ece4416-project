@@ -5,7 +5,7 @@ Each motion is a subclass of a general motion class.
 There are 4 primary motions: left, right, forward,
 and backward. Each primary motion has a "code" associated
 with it. This is the code that the wireless device transmits
-to signal that that type of motion has occoured.
+to signal that that type of motion has occurred.
 Composite motions or "gestures" can be made up by a sequence
 of these primary motions.
 
@@ -15,6 +15,10 @@ Motion codes:
     2: Right
     3: Backward
     4: Left
+    5: Fast Forward
+    6: Fast Right
+    7: Fast Backward
+    8: Fast Left
 """
 
 import mouse_movement
@@ -108,6 +112,66 @@ class BackwardMotion(Motion):
         self.motions = [self]
         self.code = 3
         self.actions = [mouse_movement.UpMouseMovement()]
+
+class FastLeftMotion(Motion):
+    """A primary motion for tilting the head to the left."""
+
+    def __init__(self):
+        """Initializes a new FastLeftMotion.
+
+        The only required motion is one tilt to the left.
+        Code for a left motion is 8.
+        The action is to move the mouse to the left.
+        """
+        super(FastLeftMotion, self).__init__()
+        self.motions = [self]
+        self.code = 8
+        self.actions = [mouse_movement.FastLeftMouseMovement()]
+
+class FastRightMotion(Motion):
+    """A primary motion for tilting the head to the right."""
+
+    def __init__(self):
+        """Initializes a new FastRightMotion.
+
+        The only required motion is one tilt to the right.
+        Code for a fast right motion is 6.
+        The action is to move the mouse to the right.
+        """
+        super(FastRightMotion, self).__init__()
+        self.motions = [self]
+        self.code = 6
+        self.actions = [mouse_movement.FastRightMouseMovement()]
+
+class FastForwardMotion(Motion):
+    """A primary motion for tilting the head forwards."""
+
+    def __init__(self):
+        """Initializes a new FastForwardMotion.
+
+        The only required motion is one tilt forwards.
+        Code for a fast forward motion is 5.
+        The action is to move the mouse downwards.
+        """
+        super(FastForwardMotion, self).__init__()
+        self.motions = [self]
+        self.code = 5
+        self.actions = [mouse_movement.FastDownMouseMovement()]
+
+class FastBackwardMotion(Motion):
+    """A primary motion for tilting the head backwards."""
+
+    def __init__(self):
+        """Initializes a new FastBackwardMotion.
+
+        The only required motion is one tilt backwards.
+        Code for a fast backward motion is 7.
+        The action is to move the mouse upwards.
+        """
+        super(FastBackwardMotion, self).__init__()
+        self.motions = [self]
+        self.code = 7
+        self.actions = [mouse_movement.FastUpMouseMovement()]
 
 class NodMotion(Motion):
     """A composite motion for nodding the head."""

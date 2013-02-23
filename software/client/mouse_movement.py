@@ -21,7 +21,8 @@ class MouseMovement(object):
         """Creates a new mouse object."""
         self.mouse = pymouse.PyMouse()
         self.screen_size = self.mouse.screen_size()
-        self.pix = 3
+        self.pix = 1
+        self.fastpix = 5
 
     def execute(self):
         """Abstract method to move the mouse.
@@ -40,29 +41,60 @@ class LeftMouseMovement(MouseMovement):
         if pos[0] > self.pix - 1:
             self.mouse.move(pos[0] - self.pix, pos[1])
 
+class FastLeftMouseMovement(MouseMovement):
+    """Moves the mouse to the left."""
+    def execute(self):
+        pos = self.mouse.position()
+        if pos[0] > self.fastpix - 1:
+            self.mouse.move(pos[0] - self.fastpix, pos[1])
+
 class RightMouseMovement(MouseMovement):
-    """Moves the mouse to the right 3 pixels."""
+    """Moves the mouse to the right 2 pixels."""
 
     def execute(self):
         pos = self.mouse.position()
         if pos[0] < self.screen_size[0] + self.pix - 1:
             self.mouse.move(pos[0] + self.pix, pos[1])
 
+class FastRightMouseMovement(MouseMovement):
+    """Moves the mouse to the right 4 pixels."""
+
+    def execute(self):
+        pos = self.mouse.position()
+        if pos[0] < self.screen_size[0] + self.fastpix - 1:
+            self.mouse.move(pos[0] + self.fastpix, pos[1])
+
 class UpMouseMovement(MouseMovement):
-    """Moves the mouse up 3 pixels."""
+    """Moves the mouse up 2 pixels."""
 
     def execute(self):
         pos = self.mouse.position()
         if pos[1] > self.pix - 1:
             self.mouse.move(pos[0], pos[1] - self.pix)
 
+class FastUpMouseMovement(MouseMovement):
+    """Moves the mouse up 4 pixels."""
+
+    def execute(self):
+        pos = self.mouse.position()
+        if pos[1] > self.fastpix - 1:
+            self.mouse.move(pos[0], pos[1] - self.fastpix)
+
 class DownMouseMovement(MouseMovement):
-    """Moves the mouse down 3 pixels."""
+    """Moves the mouse down 2 pixels."""
 
     def execute(self):
         pos = self.mouse.position()
         if pos[1] < self.screen_size[1] + self.pix - 1:
             self.mouse.move(pos[0], pos[1] + self.pix)
+
+class FastDownMouseMovement(MouseMovement):
+    """Moves the mouse down 4 pixels."""
+
+    def execute(self):
+        pos = self.mouse.position()
+        if pos[1] < self.screen_size[1] + self.fastpix - 1:
+            self.mouse.move(pos[0], pos[1] + self.fastpix)
 
 class MouseLeftClick(MouseMovement):
     """Clicks the left mouse button."""
