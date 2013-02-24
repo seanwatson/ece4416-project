@@ -9,10 +9,12 @@ commands.
 
 import Queue
 import sys
+import time
 import logging
 import motion_handler
 import motion
 import bluetooth_connection
+
 
 def main():
 
@@ -56,15 +58,30 @@ def main():
     else:
         print "Unable to connect to device. Quitting."
         sys.exit(1)
-
-    print "Starting motion handler..."
-    handler.start()
-    print "Started."
     
     print "Starting Bluetooth communication..."
     btconn.start()
     print "Communication started."
 
+    print "Waking device..."
+    cnt = 0
+    while(in_q.empty() and cnt < 20):
+        out_q.put("%CONNECT")
+        cnt = cnt + 1
+        time.sleep(0.5)
+    if cnt < 20:
+        in_q.get()
+        in_q.task_done()
+        print "Device is awake."
+    else:
+        print "Unable to wake device. Quitting."
+        btconn.stop()
+        btconn.join()
+        sys.exit(1)
+
+    print "Starting motion handler..."
+    handler.start()
+    print "Started."
     raw_input("Press enter to finish...")
 
     print "Stopping Bluetooth communication..."

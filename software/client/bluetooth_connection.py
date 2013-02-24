@@ -51,7 +51,8 @@ class BluetoothConnection(threading.Thread):
             # Handle any necessary reading
             try:
                 rec = self.sock.recv(256)
-                self.read_queue.put(rec, True)  # Blocking call
+                if len(rec) > 0:                    # Prevents empty chars
+                    self.read_queue.put(rec, True)  # Blocking call
                 logging.debug("Received from bluetooth: %s", rec)
             except bluetooth.BluetoothError:
                 pass
@@ -86,6 +87,7 @@ class BluetoothConnection(threading.Thread):
                 break
             except bluetooth.BluetoothError:
                 max_attempts = max_attempts - 1
+                self.sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
                 logging.warning("Failed to connect. Attempts remaining: %s",
                     max_attempts)
 
@@ -108,12 +110,21 @@ class BluetoothConnection(threading.Thread):
             name if it was found. Otherwise returns None
         """
         nearby_devices = bluetooth.discover_devices()
-        for addr in nearby_devices:
-            logging.info("Found device: %s", addr)
-            if bluetooth.lookup_name(addr) == name:
-                logging.info("Device %s is %s", addr, name)
-                return addr
-        logging.warning("Device not found.")
+
+        max_attempts = 3
+        
+        while max_attempts > 0:
+            
+            for addr in nearby_devices:
+                logging.info("Found device: %s", addr)
+                if bluetooth.lookup_name(addr) == name:
+                    logging.info("Device %s is %s", addr, name)
+                    return addr
+            logging.warning("Device not found. Attempts remaining: %s",
+                    max_attempts)
+            
+            max_attempts = max_attempts - 1
+
         return None
 
     def stop(self):
