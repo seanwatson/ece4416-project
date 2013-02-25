@@ -19,6 +19,7 @@
 
 #define CALIB_CMD   '+'
 #define CONN_CMD    '%'
+#define HB_CMD      'H'
 
 #define CONN_STATE      'C'
 #define DISCONN_STATE   'D'

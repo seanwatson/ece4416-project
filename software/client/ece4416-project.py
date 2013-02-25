@@ -23,7 +23,6 @@ def main():
 	
     # Bluetooth connection parameters
     dev_name = "ProjectDevBoard"
-    port = 1
 
     in_q = Queue.Queue()
     out_q = Queue.Queue()
@@ -42,42 +41,11 @@ def main():
     handler.add_motion(motion.ShakeMotion())
     print "Created. Detecting left, right, forward, backward, nod, shake."
     
-    btconn = bluetooth_connection.BluetoothConnection(in_q, out_q)
+    btconn = bluetooth_connection.BluetoothConnection(dev_name, in_q, out_q)
 
-    print "Searching for Bluetooth device..."
-    bt_addr = btconn.search(dev_name)
-    if bt_addr != None:
-        print "Device found: ", bt_addr
-    else:
-        print "Device not found. Quitting."
-        sys.exit(1)
-
-    print "Connecting to Bluetooth device..."
-    if btconn.connect(bt_addr, port):
-        print "Connected."
-    else:
-        print "Unable to connect to device. Quitting."
-        sys.exit(1)
-    
     print "Starting Bluetooth communication..."
     btconn.start()
     print "Communication started."
-
-    print "Waking device..."
-    cnt = 0
-    while(in_q.empty() and cnt < 20):
-        out_q.put("%CONNECT")
-        cnt = cnt + 1
-        time.sleep(0.5)
-    if cnt < 20:
-        in_q.get()
-        in_q.task_done()
-        print "Device is awake."
-    else:
-        print "Unable to wake device. Quitting."
-        btconn.stop()
-        btconn.join()
-        sys.exit(1)
 
     print "Starting motion handler..."
     handler.start()

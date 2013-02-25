@@ -32,6 +32,10 @@ void CommHandler::process(){
                 manage_conn();
                 break;
 
+            case HB_CMD:
+                _connected = true;
+                break;
+                
             default:
                 // ERROR condition
                 // TODO: something error handlingish
