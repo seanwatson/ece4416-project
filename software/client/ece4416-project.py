@@ -19,7 +19,7 @@ import bluetooth_connection
 def main():
 
     # Set up logging
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.INFO)
 	
     # Bluetooth connection parameters
     dev_name = "ProjectDevBoard"
@@ -50,6 +50,7 @@ def main():
     print "Starting motion handler..."
     handler.start()
     print "Started."
+
     raw_input("Press enter to finish...")
 
     print "Stopping Bluetooth communication..."

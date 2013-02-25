@@ -1,13 +1,14 @@
 /*
- * File: MotionHandler.cpp
- * Author: Sean Watson
- * Description: Implementation file for MotionHandler library
+ * File:    MotionHandler.cpp
+ * Author:  Sean Watson
+ * Date:    Feb 2013
  *
+ * Description: Implementation file for MotionHandler library
  */
 
 #include "MotionHandler.h"
 
-MotionHandler::MotionHandler(Accelerometer* accel, HardwareSerial* output):
+MotionHandler::MotionHandler(const Accelerometer* const accel, HardwareSerial* const output):
 	_accel(accel),
 	_output(output),
 	_num_motions(0)
@@ -16,33 +17,23 @@ MotionHandler::MotionHandler(Accelerometer* accel, HardwareSerial* output):
 
 void MotionHandler::process() const{
 
+    // Vars to store angles of each motion as its checked
+    static int mx, my, mz;
+
 	// Take a reading
-	float readings[3];
-	_accel->take_reading(readings);
-
-	float& x = readings[0];
-	float& y = readings[1];
-	float& z = readings[2];
-
-	// Convert the readings to G
-	for(int i = 0; i < 3; ++i){
-		readings[i] = ((readings[i] * 3.3 / 1023) - 1.65) / 0.33;
-	}
-
-	// Calculate the angles in degrees
-	float x_angle = atan(x / sqrt((y * y) + (z * z))) * 180 / 3.14159;
-	float y_angle = atan(y / sqrt((x * x) + (z * z))) * 180 / 3.14159;
-	float z_angle = atan(sqrt((x * x) + (y * y)) / z) * 180 / 3.14159;
-	
-    // Match the reading to a motion
+	static float readings[3];
+	_accel->take_reading_angle(readings);
+    
+    // Loop through all of the detectable motions
 	for(int i = 0; i < _num_motions; ++i){
-		int mx = _motions[i]->x();
-		int my = _motions[i]->y();
-		int mz = _motions[i]->z();
+		mx = _motions[i]->x();
+		my = _motions[i]->y();
+		mz = _motions[i]->z();
 
-        if(x_angle > mx - TOLERANCE && x_angle < mx + TOLERANCE &&
-		   y_angle > my - TOLERANCE && y_angle < my + TOLERANCE &&
-		   z_angle > mz - TOLERANCE && z_angle < mz + TOLERANCE){
+        // Check if the reading matches the motion
+        if(readings[0] > mx - TOLERANCE && readings[0] < mx + TOLERANCE &&
+		   readings[1] > my - TOLERANCE && readings[1] < my + TOLERANCE &&
+		   readings[2] > mz - TOLERANCE && readings[2] < mz + TOLERANCE){
 			_output->print(_motions[i]->code());
 		}
 	}
@@ -50,7 +41,10 @@ void MotionHandler::process() const{
 
 void MotionHandler::add_motion(const Motion& mot){
 
+    // Check if there is still space in the list
 	if(_num_motions < MAX_MOTIONS){
+
+        // Add the motion to the list
 		_motions[_num_motions] = &mot;
 		++_num_motions;
 	}

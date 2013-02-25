@@ -15,6 +15,7 @@ class MouseMovement(object):
         mouse: The mouse object
         screen_size: A tuple of the x and y dimensions of the screen
         pix: Number of pixels to move the mouse on each event
+        fastpix: Number of pixels to move on a fast event
     """
 
     def __init__(self):
@@ -49,7 +50,7 @@ class FastLeftMouseMovement(MouseMovement):
             self.mouse.move(pos[0] - self.fastpix, pos[1])
 
 class RightMouseMovement(MouseMovement):
-    """Moves the mouse to the right 2 pixels."""
+    """Moves the mouse to the right."""
 
     def execute(self):
         pos = self.mouse.position()
@@ -57,7 +58,7 @@ class RightMouseMovement(MouseMovement):
             self.mouse.move(pos[0] + self.pix, pos[1])
 
 class FastRightMouseMovement(MouseMovement):
-    """Moves the mouse to the right 4 pixels."""
+    """Moves the mouse to the right."""
 
     def execute(self):
         pos = self.mouse.position()
@@ -65,7 +66,7 @@ class FastRightMouseMovement(MouseMovement):
             self.mouse.move(pos[0] + self.fastpix, pos[1])
 
 class UpMouseMovement(MouseMovement):
-    """Moves the mouse up 2 pixels."""
+    """Moves the mouse up."""
 
     def execute(self):
         pos = self.mouse.position()
@@ -73,7 +74,7 @@ class UpMouseMovement(MouseMovement):
             self.mouse.move(pos[0], pos[1] - self.pix)
 
 class FastUpMouseMovement(MouseMovement):
-    """Moves the mouse up 4 pixels."""
+    """Moves the mouse up."""
 
     def execute(self):
         pos = self.mouse.position()
@@ -81,7 +82,7 @@ class FastUpMouseMovement(MouseMovement):
             self.mouse.move(pos[0], pos[1] - self.fastpix)
 
 class DownMouseMovement(MouseMovement):
-    """Moves the mouse down 2 pixels."""
+    """Moves the mouse down."""
 
     def execute(self):
         pos = self.mouse.position()
@@ -89,7 +90,7 @@ class DownMouseMovement(MouseMovement):
             self.mouse.move(pos[0], pos[1] + self.pix)
 
 class FastDownMouseMovement(MouseMovement):
-    """Moves the mouse down 4 pixels."""
+    """Moves the mouse down."""
 
     def execute(self):
         pos = self.mouse.position()

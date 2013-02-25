@@ -1,8 +1,17 @@
+/*********************************************************
+* 
+* File:     comm_handler_test.ino
+* Author:   Sean Watson
+* Date:     Feb 2013
+*
+* Description: Test code for connection and disconnection
+*              commands. Prints state changes.
+*
+**********************************************************/
+
 #include <EEPROM.h>
 
 #include <Accelerometer.h>
-#include <MotionHandler.h>
-#include <Motion.h>
 #include <CommHandler.h>
 
 #define X_PIN   A0
@@ -17,16 +26,22 @@ CommHandler comm_h(&accel, bluetooth);
 boolean conn = comm_h.connected();
 
 void setup(){
+
+  // Setup the serial hardware
   bluetooth->begin(115200);
   Serial.begin(115200);
 }
 
 void loop(){
   
+  // Process and communication
   comm_h.process();
   
+  // Check if the communication state changed
   if(conn != comm_h.connected()){
-    conn = comm_h.connected();
+    conn = comm_h.connected();      // Store the new state
+    
+    // Print which state change just happened
     if(conn){
       Serial.println("Connected!");
     }

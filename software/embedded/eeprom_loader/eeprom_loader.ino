@@ -1,3 +1,14 @@
+/************************************************
+*
+* File:     eeprom_loader.ino
+* Author:   Sean Watson
+* Date:     Feb 2013
+*
+* Description: Loads the device's EEPROM with
+*              known calibration values
+*
+*************************************************/
+
 #include <EEPROM.h>
 
 void setup(){

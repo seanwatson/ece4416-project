@@ -24,7 +24,13 @@ class BluetoothConnection(threading.Thread):
     """
 
     def __init__(self, name, read_queue, write_queue):
-        """Initializes a new BluetoothConnection with the passed params."""
+        """Initializes a new BluetoothConnection with the passed params.
+        
+        Args:
+            name: The name of the device to connect to
+            read_queue: A Queue to place received data in
+            write_queue: A Queue of data to be sent
+        """
         threading.Thread.__init__(self)
         self.read_queue = read_queue
         self.write_queue = write_queue
@@ -46,7 +52,7 @@ class BluetoothConnection(threading.Thread):
         Similarly when bytes are received they are put in the
         read buffer for use by a client.
         """
-        logging.info("BlueoothConnection thread started")
+        logging.debug("BlueoothConnection thread started")
         hb_cnt = 0
         while not self.kill:
 
@@ -70,13 +76,12 @@ class BluetoothConnection(threading.Thread):
                         self.read_queue.put(rec, True)  # Blocking call
                     logging.debug("Received from bluetooth: %s", rec)
                 except bluetooth.BluetoothError:
-                    pass
+                    pass    # OK if nothing was read
 
                 # Send a heart beat every two seconds
                 if(hb_cnt >= 2000):
                     self.write_queue.put('H')
                     hb_cnt = 0
-
                 hb_cnt = hb_cnt + 1
                 time.sleep(0.001)
 
@@ -117,6 +122,8 @@ class BluetoothConnection(threading.Thread):
         max_attempts = 3
         self.addr = addr
         self.port = port
+
+        logging.info("Trying to connect to device: %s", self.name)
         
         while max_attempts > 0:
             try:
@@ -125,7 +132,7 @@ class BluetoothConnection(threading.Thread):
                 break
             except bluetooth.BluetoothError:
                 max_attempts = max_attempts - 1
-                logging.warning("Failed to connect. Attempts remaining: %s",
+                logging.debug("Failed to connect. Attempts remaining: %s",
                     max_attempts)
 
         if max_attempts > 0:
@@ -134,7 +141,7 @@ class BluetoothConnection(threading.Thread):
             logging.info("Connected to Bluetooth: %s", addr)
             return True
         else:
-            logging.error("Failed to connect to device")
+            logging.debug("Failed to connect to device")
             return False
 
     def search(self, name):
@@ -148,6 +155,7 @@ class BluetoothConnection(threading.Thread):
             name if it was found. Otherwise returns None
         """
         self.name = name
+        logging.debug("Searching for nearby devices.")
         nearby_devices = bluetooth.discover_devices()
 
         max_attempts = 3
@@ -159,7 +167,7 @@ class BluetoothConnection(threading.Thread):
                 if bluetooth.lookup_name(addr) == name:
                     logging.info("Device %s is %s", addr, name)
                     return addr
-            logging.warning("Device not found. Attempts remaining: %s",
+            logging.debug("Device not found. Attempts remaining: %s",
                     max_attempts)
             
             max_attempts = max_attempts - 1

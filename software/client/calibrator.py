@@ -1,7 +1,10 @@
 """
-Calibrator.
+Calibraton utility for ECE 4416 project.
 
-Description here
+Prompts the user to move their head into the desired
+positions that will trigger each type of movement and
+signals the device to store the current orientation into
+non-volatile storage.
 
 """
 
@@ -18,7 +21,7 @@ def main():
     in_q = Queue.Queue()
     out_q = Queue.Queue()
 
-    btconn = bluetooth_connection.BluetoothConnection(in_q, out_q)
+    btconn = bluetooth_connection.BluetoothConnection(dev_name, in_q, out_q)
 
     print "Searching for Bluetooth device..."
     bt_addr = btconn.search(dev_name)

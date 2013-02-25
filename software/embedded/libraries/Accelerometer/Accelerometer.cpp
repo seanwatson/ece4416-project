@@ -1,6 +1,8 @@
 /*
- * File: Accelerometer.cpp
- * Author: Sean Watson
+ * File:    Accelerometer.cpp
+ * Author:  Sean Watson
+ * Date:    Feb 2013
+ * 
  * Description: Implementation file for Accelerometer library
  *
  */
@@ -28,28 +30,22 @@ void Accelerometer::take_reading_angle(float* const readings) const{
 
     // Convert the readings to G
     for(int i = 0; i < 3; ++i){
-        readings[i] = ((readings[i] * 3.3 / 1023) - 1.65) / 0.33;
+        readings[i] = ((readings[i] * VOLTAGE / ADC_STEPS) - (VOLTAGE / 2)) / 0.33;
     }
 
     // Calculate the angles in degrees
-    float x_angle = atan(readings[0] / sqrt((readings[1] * readings[1]) + (readings[2] * readings[2]))) * 180 / 3.14159;
-    float y_angle = atan(readings[1] / sqrt((readings[0] * readings[0]) + (readings[2] * readings[2]))) * 180 / 3.14159;
-    float z_angle = atan(sqrt((readings[0] * readings[0]) + (readings[1] * readings[1])) / readings[2]) * 180 / 3.14159;
+    float x_angle = atan(readings[0] / sqrt((readings[1] * readings[1])
+                    + (readings[2] * readings[2]))) * 180 / PI;
+    
+    float y_angle = atan(readings[1] / sqrt((readings[0] * readings[0])
+                    + (readings[2] * readings[2]))) * 180 / PI;
+    
+    float z_angle = atan(sqrt((readings[0] * readings[0])
+                    + (readings[1] * readings[1])) / readings[2]) * 180 / PI;
 
+    // Store the readings
     readings[0] = x_angle;
     readings[1] = y_angle;
     readings[2] = z_angle;
 }
     
-
-const int& Accelerometer::x_zero(){
-	return _x_zero;
-}
-
-const int& Accelerometer::y_zero(){
-	return _y_zero;
-}
-
-const int& Accelerometer::z_zero(){
-	return _z_zero;
-}

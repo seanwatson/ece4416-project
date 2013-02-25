@@ -1,3 +1,14 @@
+/*********************************************************
+* 
+* File:     accel_tester.ino
+* Author:   Sean Watson
+* Date:     Dec 2013
+*
+* Description: Test code for the accelerometer. Continually
+*              takes readings and prints them.
+*
+**********************************************************/
+
 #define X A0
 #define Y A1
 #define Z A2
@@ -6,8 +17,6 @@ float x, y, z, total;
 
 void setup(){
   Serial.begin(115200);
-  //pinMode(11, OUTPUT);
-  //digitalWrite(11, HIGH);
 }
 
 void loop(){
@@ -37,7 +46,7 @@ void loop(){
   float y2 = atan(y / sqrt((x * x) + (z * z))) * 180 / PI;
   float z2 = atan(sqrt((x * x) + (y * y)) / z) * 180 / PI;
   
-  
+  // Total should be ~1 when stationary (gravity is only force)
   //total = sqrt((x*x) + (y*y) + (z*z));
   
   Serial.print(x2);
@@ -45,9 +54,6 @@ void loop(){
   Serial.print(y2);
   Serial.print(", ");
   Serial.println(z2);
-  //Serial.print(z);
-  //Serial.print(", ");
-  //Serial.println(total);
   
   delay(100);
 }

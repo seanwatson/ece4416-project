@@ -1,6 +1,13 @@
 /*********************************************************
-* Forwards any serial communication over USB through to
-* the Bluetooth module and vice versa
+* 
+* File:     serial_forwarder.ino
+* Author:   Sean Watson
+* Date:     Dec 2013
+*
+* Description: Forwards any serial communication over
+*              USB through to the Bluetooth module and
+*              vice versa
+*
 **********************************************************/
 
 long usb_baud = 115200;  // USB baud rate
