@@ -5,6 +5,9 @@
  * 
  * Description: Implementation file for Accelerometer library
  *
+ * Copyright (c) 2013 Sean Watson
+ * Licensed under the MIT license
+ *
  */
 
 #include "Accelerometer.h"

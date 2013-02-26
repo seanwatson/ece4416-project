@@ -5,6 +5,9 @@
  *
  * Description: Accelerometer library for ECE4416 project
  *
+ * Copyright (c) 2013 Sean Watson
+ * Licensed under the MIT license
+ *
  */
 
 #ifndef _ACCELEROMETER_H_

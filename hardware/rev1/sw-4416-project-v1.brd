@@ -139,6 +139,9 @@
 <text x="55.88" y="29.21" size="1.778" layer="121">S. Watson</text>
 <dimension x1="93.98" y1="78.74" x2="0" y2="78.74" x3="46.99" y3="85.09" layer="51"/>
 <dimension x1="93.98" y1="78.74" x2="93.98" y2="26.67" x3="104.14" y3="52.705" layer="51"/>
+<text x="0" y="22.86" size="1.778" layer="25">Copyright (c) 2013 Sean Watson</text>
+<text x="0" y="20.32" size="1.778" layer="25">This work is licensed under the Creative Commons Attribution 3.0 Unported License</text>
+<text x="0" y="17.78" size="1.778" layer="25">To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/.</text>
 </plain>
 <libraries>
 <library name="SparkFun">

@@ -5,6 +5,10 @@
  *
  * Description: Takes accelerometer readings, deciphers the motion,
  * 		        and transmits the detected motion codes
+ *
+ * Copyright (c) 2013 Sean Watson
+ * Licensed under the MIT license
+ *
  */
 
 #ifndef _MOTION_HANDLER_H_

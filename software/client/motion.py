@@ -19,6 +19,10 @@ Motion codes:
     6: Fast Right
     7: Fast Backward
     8: Fast Left
+
+Copyright (c) 2013 Sean Watson
+Licensed under the MIT license
+
 """
 
 import mouse_movement

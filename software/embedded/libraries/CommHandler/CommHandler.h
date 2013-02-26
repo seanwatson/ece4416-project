@@ -8,6 +8,9 @@
  *              operations like connection state changes and
  *              calibration.
  *
+ * Copyright (c) 2013 Sean Watson
+ * Licensed under the MIT license
+ *
  */
 
 #ifndef _COMMHANDLER_H_

@@ -5,6 +5,9 @@
  * 
  * Description: Implementation of Motion Library
  *
+ * Copyright (c) 2013 Sean Watson
+ * Licensed under the MIT license
+ *
  */
 
 #include "Motion.h"

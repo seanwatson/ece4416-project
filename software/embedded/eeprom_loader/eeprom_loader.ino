@@ -7,6 +7,9 @@
 * Description: Loads the device's EEPROM with
 *              known calibration values
 *
+* Copyright (c) 2013 Sean Watson
+* Licensed under the MIT license
+*
 *************************************************/
 
 #include <EEPROM.h>

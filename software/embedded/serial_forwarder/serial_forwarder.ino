@@ -2,11 +2,14 @@
 * 
 * File:     serial_forwarder.ino
 * Author:   Sean Watson
-* Date:     Dec 2013
+* Date:     Jan 2013
 *
 * Description: Forwards any serial communication over
 *              USB through to the Bluetooth module and
 *              vice versa
+*
+* Copyright (c) 2013 Sean Watson
+* Licensed under the MIT license
 *
 **********************************************************/
 

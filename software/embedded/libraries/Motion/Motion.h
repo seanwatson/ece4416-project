@@ -1,11 +1,15 @@
 /*
- * File: Motion.h
- * Author: Sean Watson
- * Date: Feb 2013
+ * File:    Motion.h
+ * Author:  Sean Watson
+ * Date:    Feb 2013
  *
  *
  * Description: A data structure for storing motions that
  *              can be detected by a MotionHandler
+ *
+ * Copyright (c) 2013 Sean Watson
+ * Licensed under the MIT license
+ *
  */
 
 #ifndef _MOTION_H_

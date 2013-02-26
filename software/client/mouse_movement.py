@@ -4,6 +4,10 @@ Interface for a mouse movement command
 A client can invoke the execute command
 to move the mouse according to the type of
 MouseMovement
+
+Copyright (c) 2013 Sean Watson
+Licensed under the MIT license
+
 """
 
 import pymouse

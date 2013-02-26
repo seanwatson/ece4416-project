@@ -7,6 +7,9 @@
 * Description: Test code for connection and disconnection
 *              commands. Prints state changes.
 *
+* Copyright (c) 2013 Sean Watson
+* Licensed under the MIT license
+*
 **********************************************************/
 
 #include <EEPROM.h>

@@ -2,10 +2,13 @@
 * 
 * File:     accel_tester.ino
 * Author:   Sean Watson
-* Date:     Dec 2013
+* Date:     Jan 2013
 *
 * Description: Test code for the accelerometer. Continually
 *              takes readings and prints them.
+*
+* Copyright (c) 2013 Sean Watson
+* Licensed under the MIT license
 *
 **********************************************************/
 

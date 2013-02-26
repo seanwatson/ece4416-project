@@ -3969,6 +3969,10 @@ http://dangerousprototypes.com</description>
 <wire x1="134.62" y1="40.64" x2="2.54" y2="40.64" width="0.3048" layer="94"/>
 <text x="109.22" y="35.56" size="2.54" layer="94">Debug</text>
 <text x="172.72" y="2.54" size="2.54" layer="94" rot="MR0" align="center">Sep 24/12</text>
+<text x="134.62" y="53.34" size="1.778" layer="94">Copyright (c) 2013 Sean Watson</text>
+<text x="134.62" y="50.8" size="1.778" layer="94">This work is licensed under the Creative Commons</text>
+<text x="134.62" y="48.26" size="1.778" layer="94">Attribution 3.0 Unported License. To view a copy of this</text>
+<text x="134.62" y="45.72" size="1.778" layer="94">license, visit http://creativecommons.org/licenses/by/3.0/</text>
 </plain>
 <instances>
 <instance part="U$1" gate="G$1" x="30.48" y="63.5"/>

@@ -1,5 +1,9 @@
 """
 Handles incoming motion commands and translates them to actions.
+
+Copyright (c) 2013 Sean Watson
+Licensed under the MIT license
+
 """
 
 import threading

@@ -6,6 +6,9 @@ positions that will trigger each type of movement and
 signals the device to store the current orientation into
 non-volatile storage.
 
+Copyright (c) 2013 Sean Watson
+Licensed under the MIT license
+
 """
 
 import Queue

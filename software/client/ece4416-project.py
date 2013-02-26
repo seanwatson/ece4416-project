@@ -5,6 +5,10 @@ The client creates an input and output queue, sets
 up a bluetooth connection to handle the wireless
 communication and a motion handler to handle incoming
 commands.
+
+Copyright (c) 2013 Sean Watson
+Licensed under the MIT license
+ 
 """
 
 import Queue

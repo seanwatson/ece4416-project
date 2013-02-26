@@ -8,6 +8,9 @@
 *              Manages the connection state and preforms
 *              the necessary ADC for detecting motions
 *
+* Copyright (c) 2013 Sean Watson
+* Licensed under the MIT license
+*
 **********************************************************/
 
 // AVR libraries for sleeping

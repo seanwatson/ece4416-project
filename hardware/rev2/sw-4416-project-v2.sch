@@ -3619,6 +3619,9 @@ http://dangerousprototypes.com</description>
 <wire x1="101.6" y1="45.72" x2="83.82" y2="45.72" width="0.4064" layer="94"/>
 <wire x1="83.82" y1="45.72" x2="83.82" y2="83.82" width="0.4064" layer="94"/>
 <text x="86.36" y="76.2" size="2.54" layer="94">LED</text>
+<text x="5.08" y="22.86" size="1.778" layer="94">Copyright (c) 2013 Sean Watson</text>
+<text x="5.08" y="20.32" size="1.778" layer="94">This work is licensed under the Creative Commons Attribution 3.0 Unported License</text>
+<text x="5.08" y="17.78" size="1.778" layer="94">To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/.</text>
 </plain>
 <instances>
 <instance part="U$1" gate="G$1" x="66.04" y="137.16"/>

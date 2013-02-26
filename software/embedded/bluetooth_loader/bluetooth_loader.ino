@@ -7,6 +7,9 @@
 * Description: Sketch to quickly program the bluetooth
 *              module with the corrent firmware settings
 *
+* Copyright (c) 2013 Sean Watson
+* Licensed under the MIT license
+*
 **********************************************************/
 
 void setup(){

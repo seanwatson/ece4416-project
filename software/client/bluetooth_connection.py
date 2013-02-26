@@ -1,6 +1,10 @@
 """
 Maintains a connection to a bluetooth device and handles
 all reads and writes to the socket.
+
+Copyright (c) 2013 Sean Watson
+Licensed under the MIT license
+ 
 """
 
 import threading
