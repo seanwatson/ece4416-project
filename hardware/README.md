@@ -54,7 +54,7 @@ License
 -------
 
 These designs are licensed under a Creative Commons Attribution 3.0 license. See the
-LICENSE.md file for more details.
+LICENSE.txt file for more details.
 
 Acknowledgements
 ----------------
