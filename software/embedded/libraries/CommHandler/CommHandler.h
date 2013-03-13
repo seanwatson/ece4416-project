@@ -57,7 +57,7 @@ class CommHandler{
          * \param input The serial device to listen for communication on
          */
         CommHandler(const Accelerometer* const accel, HardwareSerial* const input);
-
+         
         /**
          * Listens for incoming communication. When bytes are detected it
          * reads them and preforms the requested actions.

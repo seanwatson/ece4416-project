@@ -14,8 +14,12 @@ Licensed under the MIT license
 import Queue
 import motion
 import bluetooth_connection
+import sys
+import logging
 
 def main():
+    
+    logging.basicConfig(level=logging.INFO)
 
     # Bluetooth connection parameters
     dev_name = "ProjectDevBoard"
@@ -26,6 +30,7 @@ def main():
 
     btconn = bluetooth_connection.BluetoothConnection(dev_name, in_q, out_q)
 
+    """
     print "Searching for Bluetooth device..."
     bt_addr = btconn.search(dev_name)
     if bt_addr != None:
@@ -40,7 +45,7 @@ def main():
     else:
         print "Unable to connect to device. Quitting."
         sys.exit(1)
-
+    """
     btconn.start()
 
     raw_input("Move your head slightly forward and hit Enter when ready...")
