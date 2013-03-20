@@ -48,7 +48,7 @@ class MotionHandler(threading.Thread):
         Waits for commands to be received, processes them and calls the
         appropriate actions when necessary.
         """
-        logging.info("Starting MotionHandler thread")
+        logging.debug("Starting MotionHandler thread")
         start = time.time()
         while not self.kill:
             code = int(self.motion_queue.get(True))  # Blocking get call
@@ -85,7 +85,7 @@ class MotionHandler(threading.Thread):
         """Stops the thread."""
         self.kill = True
         self.motion_queue.put(0)    # Needed to get out of blocking call
-        logging.info("Stopping MotionHandler")
+        logging.debug("Stopping MotionHandler")
 
     def add_motion(self, mot):
         """Adds a motion to detect.
@@ -98,6 +98,6 @@ class MotionHandler(threading.Thread):
             The new motion to be detected.
         """
         self.motions.append(mot)
-        logging.info("Added Motion %s to MotionHandler %s",
+        logging.debug("Added Motion %s to MotionHandler %s",
                 mot, self)
 

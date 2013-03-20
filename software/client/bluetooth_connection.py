@@ -25,15 +25,17 @@ class BluetoothConnection(threading.Thread):
         name: String, Name of last attempted device search
         addr: String, MAC address of last attempted connection
         port: Int, Port of last attempted connection
+        hb: Boolean, whether heartbeats should be sent or not
     """
 
-    def __init__(self, name, read_queue, write_queue):
+    def __init__(self, name, read_queue, write_queue, hb=True):
         """Initializes a new BluetoothConnection with the passed params.
         
         Args:
             name: The name of the device to connect to
             read_queue: A Queue to place received data in
             write_queue: A Queue of data to be sent
+            hb: Boolean, True to send heartbeats, false don't send
         """
         threading.Thread.__init__(self)
         self.read_queue = read_queue
@@ -44,6 +46,7 @@ class BluetoothConnection(threading.Thread):
         self.name = name
         self.addr = None
         self.port = 1
+        self.hb = hb
         logging.debug("BluetoothConnection created. Read %s, Write %s, Sock %s",
             self.read_queue, self.write_queue, self.sock)
 
@@ -83,7 +86,7 @@ class BluetoothConnection(threading.Thread):
                     pass    # OK if nothing was read
 
                 # Send a heart beat every two seconds
-                if(hb_cnt >= 2000):
+                if(self.hb and hb_cnt >= 2000):
                     self.write_queue.put('H')
                     hb_cnt = 0
                 hb_cnt = hb_cnt + 1
