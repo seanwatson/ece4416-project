@@ -16,7 +16,7 @@ For demonstration purposes the device was designed to control the movement and
 clicking of a mouse on a computer screen. The device consists of a small,
 wearable circuit that is concealed within a baseball cap and software running
 on the computer. When the device is within wireless range of the computer it
-automatically connects with the computer over a bluetooth and
+automatically connects with the computer over bluetooth and
 begins translating the user's head motions into mouse movements and clicks on the
 screen.
 
